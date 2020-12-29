@@ -21,6 +21,12 @@ let year;
 console.log(year);
 console.log(typeof year);
 
+// Uncaught ReferenceError because of Strict Mode
+// undefined
+let myStringTest;
+
+console.log(myStringTest);
+
 year = 1991;
 
 // won't compile because attempting to mutate constant
