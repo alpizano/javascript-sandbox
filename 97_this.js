@@ -1,6 +1,8 @@
 "use strict";
+// Window
+console.log(this);
 
-// function expression
+// function expression/regular function "No owner"
 const calcAgeExpression = function (birthYear) {
   // "this" is undefined
   console.log(this);
