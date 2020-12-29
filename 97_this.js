@@ -9,6 +9,7 @@ const calcAgeExpression = function (birthYear) {
 
 calcAgeExpression(1987);
 
+// arrow function
 const calcAgeArrow = (birthYear) => {
   // "this" is the parent/Lexical Window object
   console.log(this);
@@ -17,6 +18,7 @@ const calcAgeArrow = (birthYear) => {
 
 calcAgeArrow(1987);
 
+// calling function within object/as method
 const al = {
   year: 1987,
   calcAge: function () {
