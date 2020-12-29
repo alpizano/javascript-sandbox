@@ -1,10 +1,11 @@
 "use strict";
 
+// DATA TYPES
 // Uncaught ReferenceError because of Strict Mode
-//randomThing = 42;
 let anotherThing = 69;
 let javascriptIsFun = true;
 
+//randomThing = 42;
 //console.log(typeof randomThing);
 console.log(typeof anotherThing);
 console.log(javascriptIsFun);

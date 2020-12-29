@@ -21,6 +21,9 @@ markHeight = 1.88;
 johnWeight = 85;
 johnHeight = 1.76;
 
+console.log(`Mark BMI: ${calcBmi(markWeight, markHeight)}`);
+console.log(`Mark BMI: ${calcBmi(johnWeight, johnHeight)}`);
+
 markHigherBMI =
   calcBmi(markWeight, markHeight) > calcBmi(johnWeight, johnHeight);
 console.log(`Mark has a higher BMI: ${markHigherBMI}`);

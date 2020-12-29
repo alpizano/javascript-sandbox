@@ -1,5 +1,6 @@
 "use strict";
 
+// OBJECTS
 // objects have properties
 const someObject = {
   1: 69,
