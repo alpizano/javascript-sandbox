@@ -36,3 +36,15 @@ year = 1991;
 
 // type of null is object; error, should be Null
 console.log(typeof null);
+
+// TYPE CONVERSION / COERCION
+const inputYear = "1991";
+
+console.log(inputYear + 18);
+console.log(Number(inputYear) + 18);
+
+// type coercion, + operator triggers type coercion (converts to string), but not -, /, or *, > (converts to numbers)
+console.log("I am " + 23 + " years old");
+
+// TRUTHY / FALSY
+// falsy = 0, '', undefined, null, NaN
