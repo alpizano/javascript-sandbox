@@ -1,7 +1,7 @@
 "use strict";
 
 let bills = [275, 40, 430];
-
+bills.map;
 function calcTip(bills) {
   let totals = [];
 
