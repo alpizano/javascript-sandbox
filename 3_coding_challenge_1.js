@@ -4,12 +4,11 @@ const calcAverage = (scores1, scores2) => {
   let sum1 = 0;
   let sum2 = 0;
 
-  scores1.forEach((element) => {
+  scores1.forEach((element, index) => {
     sum1 += element;
+    sum2 += scores2[index];
   });
-  scores2.forEach((element) => {
-    sum2 += element;
-  });
+
   console.log(`Dolphins avg: ${sum1 / scores1.length}`);
   console.log(`Koalas avg: ${sum2 / scores2.length}`);
 
