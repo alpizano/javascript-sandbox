@@ -31,4 +31,5 @@ calcTip(bills);
 console.log(`Tips are: ${tips}`);
 console.log(`Totals are: ${totals}`);
 
+// Can use any array here
 console.log(calcAverage(totals));

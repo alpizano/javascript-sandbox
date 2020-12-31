@@ -67,3 +67,12 @@ const processSomeData = (inputData) => {
 const returnedData = processSomeData([5, 33, 42, 7, 100]);
 // returns Undefined if void
 console.log(`Returned data is: ${returnedData}`);
+
+const al = ["Al", "Pizano", 1987, "Engineer", ["Mike", "Moe", "Carlos"], true];
+
+const types = [];
+for (let i = 0; i < al.length; i++) {
+  types.push(typeof al[i]);
+}
+
+console.log(types);
