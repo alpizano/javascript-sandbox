@@ -46,29 +46,22 @@ const updateHighScore = (highScore, attempts) => {
 };
 
 document.querySelector('.check').addEventListener('click', () => {
-  //console.log(document.querySelector('.guess').value);
-  // returns a string
+  // Returns a string. String converted to number, if "" (empty string, no input) => 0 , which is falsy value
   const guess = Number(document.querySelector('.guess').value);
-  //document.querySelector('.message').textContent = '🎉Correct number!';
-  // string converted to number, if "" (empty string, no input) => 0 , which is falsy value
 
   if (!guess) {
     document.querySelector('.message').textContent =
       "⚠ you've entered no input!";
   } else {
-    if (guess < number) {
-      checkGuess(guess, number);
-    } else if (guess > number) {
+    if (guess !== number) {
       checkGuess(guess, number);
     } else {
-      // Body is element NOT class, so no .
-      // CSS uses camelcase
+      // Body is element NOT class, so no . CSS uses camelcase, not background-color
       document.querySelector('body').style.backgroundColor = 'green';
       //document.body.style.backgroundColor = 'green';
       document.querySelector('.number').style.width = '30rem';
       document.querySelector('.message').textContent = '🎉Correct number!';
       document.querySelector('.number').textContent = number;
-
       updateHighScore(highScore, attempts);
     }
   }
