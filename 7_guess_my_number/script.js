@@ -34,10 +34,14 @@ const checkGuess = (guess, number) => {
     document.querySelector('.score').textContent = --attempts;
   } else {
     document.querySelector('.message').textContent = '💥You lost the game!';
-    if (highScore < attempts) {
-      highScore = attempts;
-      document.querySelector('.highscore').textContent = highScore;
-    }
+    updateHighScore(highScore, attempts);
+  }
+};
+
+const updateHighScore = (highScore, attempts) => {
+  if (highScore < attempts) {
+    highScore = attempts;
+    document.querySelector('.highscore').textContent = highScore;
   }
 };
 
@@ -65,14 +69,12 @@ document.querySelector('.check').addEventListener('click', () => {
       document.querySelector('.message').textContent = '🎉Correct number!';
       document.querySelector('.number').textContent = number;
 
-      if (highScore < attempts) {
-        highScore = attempts;
-        document.querySelector('.highscore').textContent = highScore;
-      }
+      updateHighScore(highScore, attempts);
     }
   }
 });
 
+// Reset game to play again
 document.querySelector('.again').addEventListener('click', () => {
   document.body.style.backgroundColor = '#222';
   document.querySelector('.number').style.width = '15rem';
