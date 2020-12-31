@@ -25,6 +25,22 @@
 
 // EVENT LISTENERS
 // onClick event listener
+
+const checkGuess = (guess, number) => {
+  if (attempts > 1) {
+    document.querySelector('.message').textContent = `${
+      guess < number ? '📉Too low' : '📈Too high'
+    }`;
+    document.querySelector('.score').textContent = --attempts;
+  } else {
+    document.querySelector('.message').textContent = '💥You lost the game!';
+    if (highScore < attempts) {
+      highScore = attempts;
+      document.querySelector('.highscore').textContent = highScore;
+    }
+  }
+};
+
 document.querySelector('.check').addEventListener('click', () => {
   //console.log(document.querySelector('.guess').value);
   // returns a string
@@ -33,43 +49,16 @@ document.querySelector('.check').addEventListener('click', () => {
   // string converted to number, if "" (empty string, no input) => 0 , which is falsy value
 
   if (!guess) {
-    if (attempts > 1) {
-      document.querySelector('.message').textContent =
-        "⚠ you've entered no input!";
-      document.querySelector('.score').textContent = --attempts;
-    } else {
-      document.querySelector('.message').textContent = 'You lost the game!';
-      if (highScore < attempts) {
-        highScore = attempts;
-        document.querySelector('.highscore').textContent = highScore;
-      }
-    }
+    document.querySelector('.message').textContent =
+      "⚠ you've entered no input!";
   } else {
     if (guess < number) {
-      if (attempts > 1) {
-        document.querySelector('.message').textContent = '📉Too low';
-        document.querySelector('.score').textContent = --attempts;
-      } else {
-        document.querySelector('.message').textContent = 'You lost the game!';
-        if (highScore < attempts) {
-          highScore = attempts;
-          document.querySelector('.highscore').textContent = highScore;
-        }
-      }
+      checkGuess(guess, number);
     } else if (guess > number) {
-      if (attempts > 1) {
-        document.querySelector('.message').textContent = '📈Too high';
-        document.querySelector('.score').textContent = --attempts;
-      } else {
-        document.querySelector('.message').textContent = '💥You lost the game!';
-        if (highScore < attempts) {
-          highScore = attempts;
-          document.querySelector('.highscore').textContent = highScore;
-        }
-      }
+      checkGuess(guess, number);
     } else {
-      // body is element NOT class, so no .
-      // css uses camelcase
+      // Body is element NOT class, so no .
+      // CSS uses camelcase
       document.querySelector('body').style.backgroundColor = 'green';
       //document.body.style.backgroundColor = 'green';
       document.querySelector('.number').style.width = '30rem';
@@ -89,11 +78,11 @@ document.querySelector('.again').addEventListener('click', () => {
   document.querySelector('.number').style.width = '15rem';
   number = Math.floor(Math.random() * 20) + 1;
   attempts = 20;
+  document.querySelector('.score').textContent = attempts;
   console.log(`Random number is: ${number}`);
   console.log(`Attempts are: ${attempts}`);
   document.querySelector('.number').textContent = '?';
   document.querySelector('.message').textContent = 'Start guessing...';
-  document.querySelector('.score').textContent = 20;
   document.querySelector('.guess').value = '';
 });
 
