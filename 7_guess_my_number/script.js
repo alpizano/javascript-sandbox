@@ -68,8 +68,11 @@ document.querySelector('.check').addEventListener('click', () => {
         }
       }
     } else {
-      // document.getElementById('body').style.backgroundColor = 'green';
-      document.body.style.backgroundColor = 'green';
+      // body is element NOT class, so no .
+      // css uses camelcase
+      document.querySelector('body').style.backgroundColor = 'green';
+      //document.body.style.backgroundColor = 'green';
+      document.querySelector('.number').style.width = '30rem';
       document.querySelector('.message').textContent = '🎉Correct number!';
       document.querySelector('.number').textContent = number;
 
@@ -83,6 +86,7 @@ document.querySelector('.check').addEventListener('click', () => {
 
 document.querySelector('.again').addEventListener('click', () => {
   document.body.style.backgroundColor = '#222';
+  document.querySelector('.number').style.width = '15rem';
   number = Math.floor(Math.random() * 20) + 1;
   attempts = 20;
   console.log(`Random number is: ${number}`);
