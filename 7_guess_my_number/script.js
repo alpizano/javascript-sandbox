@@ -33,17 +33,43 @@ document.querySelector('.check').addEventListener('click', () => {
   // string converted to number, if "" (empty string, no input) => 0 , which is falsy value
 
   if (!guess) {
-    document.querySelector('.message').textContent =
-      "⚠ you've entered no input!";
-    document.querySelector('.score').textContent = --attempts;
-  } else {
-    if (guess < number) {
-      document.querySelector('.message').textContent = 'Too low';
-      document.querySelector('.score').textContent = --attempts;
-    } else if (guess > number) {
-      document.querySelector('.message').textContent = 'Too high';
+    if (attempts > 1) {
+      document.querySelector('.message').textContent =
+        "⚠ you've entered no input!";
       document.querySelector('.score').textContent = --attempts;
     } else {
+      document.querySelector('.message').textContent = 'You lost the game!';
+      if (highScore < attempts) {
+        highScore = attempts;
+        document.querySelector('.highscore').textContent = highScore;
+      }
+    }
+  } else {
+    if (guess < number) {
+      if (attempts > 1) {
+        document.querySelector('.message').textContent = '📉Too low';
+        document.querySelector('.score').textContent = --attempts;
+      } else {
+        document.querySelector('.message').textContent = 'You lost the game!';
+        if (highScore < attempts) {
+          highScore = attempts;
+          document.querySelector('.highscore').textContent = highScore;
+        }
+      }
+    } else if (guess > number) {
+      if (attempts > 1) {
+        document.querySelector('.message').textContent = '📈Too high';
+        document.querySelector('.score').textContent = --attempts;
+      } else {
+        document.querySelector('.message').textContent = '💥You lost the game!';
+        if (highScore < attempts) {
+          highScore = attempts;
+          document.querySelector('.highscore').textContent = highScore;
+        }
+      }
+    } else {
+      // document.getElementById('body').style.backgroundColor = 'green';
+      document.body.style.backgroundColor = 'green';
       document.querySelector('.message').textContent = '🎉Correct number!';
       document.querySelector('.number').textContent = number;
 
@@ -52,15 +78,11 @@ document.querySelector('.check').addEventListener('click', () => {
         document.querySelector('.highscore').textContent = highScore;
       }
     }
-
-    if (attempts < 0 && highScore < attempts) {
-      highScore = attempts;
-      document.querySelector('.highscore').textContent = highScore;
-    }
   }
 });
 
 document.querySelector('.again').addEventListener('click', () => {
+  document.body.style.backgroundColor = '#222';
   number = Math.floor(Math.random() * 20) + 1;
   attempts = 20;
   console.log(`Random number is: ${number}`);
@@ -68,6 +90,7 @@ document.querySelector('.again').addEventListener('click', () => {
   document.querySelector('.number').textContent = '?';
   document.querySelector('.message').textContent = 'Start guessing...';
   document.querySelector('.score').textContent = 20;
+  document.querySelector('.guess').value = '';
 });
 
 // Random generator
