@@ -1,0 +1,22 @@
+{
+  "name": "complete-js-course",
+  "version": "1.0.0",
+  "description": "udemy javascript course by jonas",
+  "main": "16_async_js.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alpizano/javascript-sandbox.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alpizano/javascript-sandbox/issues"
+  },
+  "homepage": "https://github.com/alpizano/javascript-sandbox#readme",
+  "dependencies": {
+    "bootstrap": "^3.4.1"
+  }
+}
