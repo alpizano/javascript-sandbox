@@ -58,21 +58,24 @@ const players1Final = [...players1, "Thiago", "Coutinho", "Perisic"];
 
 // Task 5
 // object destructuring ; assignment with declaration
-const { team1, draw = 0, team2 } = game.odds;
+const {
+  odds: { team1, x: draw, team2 },
+} = game;
+console.log(team1, draw, team2);
 
 // Task 6
 const printGoals = (...names) => {
-  const namesArray = [...names];
-  // console.log(`names array: ${namesArray}`);
-
   let goalsScored = 0;
-  namesArray.forEach((val) => {
+  names.forEach((val) => {
     console.log(val);
     goalsScored++;
   });
-
-  console.log(`There were ${goalsScored} total goals scored!`);
+  console.log(`There were ${names.length} total goals scored!`);
 };
 
 printGoals("Davies", "Muller", "Lewandowski", "Kimmic");
 printGoals(...game.scored);
+
+// Task 7
+team1 < team2 && console.log("Team 1 is more likely to win");
+team1 > team2 && console.log("Team 2 is more likely to win");
