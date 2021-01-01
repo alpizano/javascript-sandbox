@@ -64,3 +64,10 @@ const getCountryAndNeighbor = (country) => {
 
 getCountryAndNeighbor("usa");
 //getCountryAndNeighbor("portugal");
+
+setTimeout(function () {
+  console.log("1st function");
+  setTimeout(function () {
+    console.log("I'm in the second function now!");
+  }, 5000);
+}, 5000);
