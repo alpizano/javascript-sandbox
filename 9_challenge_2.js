@@ -97,7 +97,11 @@ for (const [key, val] of Object.entries(game.odds)) {
 }
 
 const scorers = {};
-console.log(Object.keys("Hummels"));
+// if object VALUE doesn't exist, returns undefined
+// if object VALUE does exist, it returns the VALUE
+console.log(scorers["Hummels"]);
+// check if key exist in object
+console.log("Hummels" in scorers);
 
 game.scored.forEach((player) => {
   //   if (!scorers[player]) {
@@ -106,6 +110,7 @@ game.scored.forEach((player) => {
   //   } else {
   //     scorers[player] = scorers[player] + 1;
   //   }
+
   scorers[player] ? scorers[player]++ : (scorers[player] = 1);
 });
 console;
