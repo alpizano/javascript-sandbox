@@ -102,4 +102,18 @@ const scorers = {
   [game.scored[3]]: 2,
 };
 
-console.log(scorers);
+//console.log(scorers);
+
+const anotherScorers = {};
+console.log(Object.keys("Hummels"));
+
+game.scored.forEach((element) => {
+  //if (!anotherScorers[element]) {
+  if (!Object.keys(element)) {
+    anotherScorers[element] = 1;
+  } else {
+    anotherScorers[element] = anotherScorers[element] + 1;
+  }
+});
+console;
+console.log(anotherScorers);
