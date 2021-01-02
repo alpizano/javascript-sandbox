@@ -13,3 +13,13 @@ const gameEvents = new Map([
   [80, "⚽️ GOAL"],
   [92, "🔶 Yellow card"],
 ]);
+
+// convert map to array
+const events = [...gameEvents.values()];
+// convert array to set then back to array
+console.log(events);
+console.log(new Set(events));
+
+const eventsNoDups = [...new Set(events)];
+
+console.log(eventsNoDups);
