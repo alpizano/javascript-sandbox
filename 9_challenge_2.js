@@ -66,7 +66,7 @@ const game = {
 // Task 1
 // For-of with index
 for (const [index, val] of game.scored.entries()) {
-  console.log(`Goal ${index + 1} by ${val}`);
+  console.log(`Goal ${index + 1}: by ${val}`);
 }
 
 // Task 2
@@ -96,24 +96,17 @@ for (const [key, val] of Object.entries(game.odds)) {
   console.log(`Odds of victory ${game[key] ?? "draw"}: ${val} `);
 }
 
-const scorers = {
-  [game.scored[0]]: 1,
-  [game.scored[1]]: 1,
-  [game.scored[3]]: 2,
-};
-
-//console.log(scorers);
-
-const anotherScorers = {};
+const scorers = {};
 console.log(Object.keys("Hummels"));
 
-game.scored.forEach((element) => {
-  //if (!anotherScorers[element]) {
-  if (!Object.keys(element)) {
-    anotherScorers[element] = 1;
-  } else {
-    anotherScorers[element] = anotherScorers[element] + 1;
-  }
+game.scored.forEach((player) => {
+  //   if (!scorers[player]) {
+  //     // if (!Object.keys(element)) {
+  //     scorers[player] = 1;
+  //   } else {
+  //     scorers[player] = scorers[player] + 1;
+  //   }
+  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
 });
 console;
-console.log(anotherScorers);
+console.log(scorers);
