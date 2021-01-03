@@ -26,10 +26,32 @@ const btnNew = document.querySelector(".btn--new");
 const btnRoll = document.querySelector(".btn--roll");
 const btnHold = document.querySelector(".btn--hold");
 
-let scoresArr = [0, 0];
-let currentScore = 0;
-let activePlayer = 0;
-let playing = true;
+let scoresArr, currentScore, activePlayer, playing;
+
+const init = () => {
+  scoresArr = [0, 0];
+  playing = true;
+  activePlayer = 0;
+  currentScore = 0;
+
+  resetPlayerScores(scores);
+  resetCurrentScores(currentScores);
+  // use hidden class instead of manually setting CSS
+  //dice.style.display = "none";
+  diceElement.classList.add("hidden");
+
+  document
+    .querySelector(`.player--${activePlayer}`)
+    .classList.remove("player--winner");
+  document
+    .querySelector(`.player--${activePlayer}`)
+    .classList.remove("player--winner");
+
+  document
+    .querySelector(`.player--${activePlayer}`)
+    .classList.add("player--active");
+  document.querySelector(".player--1").classList.remove("player--active");
+};
 
 // When game starts; bootstrap
 const resetPlayerScores = (scoresArr) => {
@@ -62,10 +84,7 @@ const resetCurrentScore = (player) => {
   document.querySelector(`#current--${player}`).textContent = currentScore;
 };
 
-// use hidden class instead of manually setting CSS
-//dice.style.display = "none";
-diceElement.classList.add("hidden");
-resetPlayerScores(scores);
+init();
 
 // Roll dice functionality
 
@@ -140,17 +159,4 @@ btnHold.addEventListener("click", function () {
 // 1. set player scores to 0
 // 2. hide dice
 
-btnNew.addEventListener("click", function () {
-  resetPlayerScores(scores);
-  resetCurrentScores(currentScores);
-  diceElement.classList.add("hidden");
-  scoresArr = [0, 0];
-  document
-    .querySelector(`.player--${activePlayer}`)
-    .classList.remove("player--winner");
-  document
-    .querySelector(`.player--${activePlayer}`)
-    .classList.remove("player--winner");
-  activePlayer = 0;
-  playing = true;
-});
+btnNew.addEventListener("click", init);
