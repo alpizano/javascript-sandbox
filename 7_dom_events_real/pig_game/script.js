@@ -26,7 +26,9 @@ score.forEach((scores) => (scores.textContent = 0));
 //dice.style.display = "none";
 diceElement.classList.add("hidden");
 
+let scoresArr = [0, 0];
 let currentScore = 0;
+let activePlayer = 0;
 
 // Roll dice functionality
 // 1. generate random number
@@ -34,27 +36,53 @@ let currentScore = 0;
 // 3. check for rolled 1
 btnRoll.addEventListener("click", function () {
   const number = Math.floor(Math.random() * 6) + 1;
-  console.log(`${number}`);
+  //console.log(`${number}`);
+  console.log(`active player: ${activePlayer}`);
 
   diceElement.classList.remove("hidden");
-
   diceElement.src = `dice-${number}.png`;
 
   if (number !== 1) {
     currentScore += number;
-    player0.classList.contains("player--active")
-      ? (current0Score.textContent = currentScore)
-      : (current1Score.textContent = currentScore);
+
+    // player0.classList.contains("player--active")
+    //   ? (current0Score.textContent = currentScore)
+    //   : (current1Score.textContent = currentScore);
+
+    document.querySelector(
+      `#current--${activePlayer}`
+    ).textContent = currentScore;
   } else {
     currentScore = 0;
+    document.querySelector(
+      `#current--${activePlayer}`
+    ).textContent = currentScore;
 
-    // move to next player
-    if (player0.classList.contains("player--active")) {
+    // switch player
+    console.log(`${activePlayer} === 1 = ${activePlayer === 1}`);
+    activePlayer = activePlayer === 1 ? 0 : 1;
+
+    if (!activePlayer) {
       player0.classList.remove("player--active");
       player1.classList.add("player--active");
     } else {
       player1.classList.remove("player--active");
       player0.classList.add("player--active");
     }
+
+    // if (player0.classList.contains("player--active")) {
+    //   player0.classList.remove("player--active");
+    //   player1.classList.add("player--active");
+    // } else {
+    //   player1.classList.remove("player--active");
+    //   player0.classList.add("player--active");
+    // }
   }
+});
+
+// Hold button functionality
+btnHold.addEventListener("click", function () {
+  player0.classList.contains("player--active")
+    ? (current0Score.textContent = currentScore)
+    : (current1Score.textContent = currentScore);
 });
