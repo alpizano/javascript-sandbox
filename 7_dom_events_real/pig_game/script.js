@@ -7,8 +7,11 @@ const diceElement = document.querySelector(".dice");
 const playerScore0 = document.querySelector("#score--0");
 const playerScore1 = document.getElementById("score--1");
 
-// holds both player scores
+// holds ALL player total scores
 const scores = document.querySelectorAll(".score");
+
+// holds ALL player current scores
+const currentScores = document.querySelectorAll(".current-score");
 
 // current scores
 const current0Score = document.getElementById("current--0");
@@ -29,8 +32,14 @@ let activePlayer = 0;
 let playing = true;
 
 // When game starts; bootstrap
-const resetPlayerScores = (scoreArr) => {
-  scoreArr.forEach((scores) => (scores.textContent = 0));
+const resetPlayerScores = (scoresArr) => {
+  scoresArr.forEach((score) => (score.textContent = 0));
+};
+
+const resetCurrentScores = (scoresArr) => {
+  scoresArr.forEach((currScore) => {
+    currScore.textContent = 0;
+  });
 };
 
 const switchPlayers = () => {
@@ -133,6 +142,15 @@ btnHold.addEventListener("click", function () {
 
 btnNew.addEventListener("click", function () {
   resetPlayerScores(scores);
+  resetCurrentScores(currentScores);
   diceElement.classList.add("hidden");
   scoresArr = [0, 0];
+  document
+    .querySelector(`.player--${activePlayer}`)
+    .classList.remove("player--winner");
+  document
+    .querySelector(`.player--${activePlayer}`)
+    .classList.remove("player--winner");
+  activePlayer = 0;
+  playing = true;
 });
