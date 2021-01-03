@@ -28,7 +28,7 @@ functDecl();
 functExpressNonArrow();
 functExpressArrow();
 
-lufthansa.book(239, "Al Pizano");
+lufthansa.book(239, "Al;lllllllllll Pizano");
 lufthansa.book(635, "John Doe");
 console.log(lufthansa);
 
@@ -59,3 +59,21 @@ const functGenerator = (rate) => {
 
 const newFunct = functGenerator(0.1);
 console.log(newFunct(200));
+
+// add function to object
+lufthansa.planes = 300;
+
+lufthansa.buyPlane = function () {
+  console.log(`${this}`);
+
+  this.planes++;
+  console.log(this.planes);
+};
+
+// console.log(document.querySelector(".btn"));
+// console.log(document.getElementById("buy"));
+
+// Objects passed to event handlers "this" is bound to DOM element triggering event
+document
+  .querySelector(".btn")
+  .addEventListener("click", lufthansa.buyPlane.bind(lufthansa));
