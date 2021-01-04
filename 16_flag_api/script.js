@@ -22,7 +22,9 @@ const renderCountry = (data, [className = ""]) => {
       </div>
     </article>`;
 
-  document.querySelector(".countries").insertAdjacentHTML("beforeend", html);
+  // document.querySelector(".countries").insertAdjacentHTML("beforeend", html);
+
+  document.querySelector(".countries").innerHTML += html;
   document.querySelector(".countries").style.opacity = 1;
 };
 
