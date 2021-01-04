@@ -28,8 +28,9 @@ document.querySelector(".myButton").addEventListener("click", function () {
   console.log(textArray);
 
   for (const [i, word] of textArray.entries()) {
-    let emoji = "✅";
+    const emoji = "✅";
 
+    // can reduce complexity by splitting on "_" then just replacing first letter of second word toUpperCase()
     const _index = word.indexOf("_");
     const segment = word.slice(_index, _index + 2);
     const newWord = word
@@ -40,6 +41,6 @@ document.querySelector(".myButton").addEventListener("click", function () {
       )
       .replace(word.slice(_index + 2), word.slice(_index + 2).toLowerCase());
 
-    console.log(`${newWord.padEnd(20, " ")} ${emoji.repeat(i + 1)}`);
+    console.log(`${newWord.padEnd(20)} ${emoji.repeat(i + 1)}`);
   }
 });
