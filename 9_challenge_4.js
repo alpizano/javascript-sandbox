@@ -27,7 +27,9 @@ document.querySelector(".myButton").addEventListener("click", function () {
   const textArray = text.split("\n");
   console.log(textArray);
 
-  for (const word of textArray) {
+  for (const [i, word] of textArray.entries()) {
+    let emoji = "✅";
+
     const _index = word.indexOf("_");
     const segment = word.slice(_index, _index + 2);
     const newWord = word
@@ -38,6 +40,6 @@ document.querySelector(".myButton").addEventListener("click", function () {
       )
       .replace(word.slice(_index + 2), word.slice(_index + 2).toLowerCase());
 
-    console.log(newWord);
+    console.log(`${newWord.padEnd(20, " ")} ${emoji.repeat(i + 1)}`);
   }
 });
