@@ -27,3 +27,13 @@ Person.prototype.calcAge = function () {
 };
 
 al.calcAge();
+console.log(al.__proto__);
+
+Person.prototype.species = "Homo sapiens";
+console.log(al.species);
+
+console.log(
+  `al has property firstName:   ${al.hasOwnProperty("firstName")}    `
+);
+
+console.log(`al has property species: ${al.hasOwnProperty("species")}`);
