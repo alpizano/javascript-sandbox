@@ -37,3 +37,5 @@ console.log(
 );
 
 console.log(`al has property species: ${al.hasOwnProperty("species")}`);
+
+// proto is prototype of object (al)

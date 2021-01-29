@@ -131,7 +131,7 @@ for (const [key, value] of question) {
   }
 }
 
-const answer = Number(prompt("Your answer"));
+//const answer = Number(prompt("Your answer"));
 
 const message = question.get(answer === question.get("correct"));
 console.log(message);

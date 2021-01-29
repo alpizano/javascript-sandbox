@@ -8,12 +8,12 @@ const Car = function (make, speed) {
 
 console.log(Car);
 
-Car.accelerate = function () {
+Car.prototype.accelerate = function () {
   this.speed = Number(this.speed) + 10;
   console.log(`New speed: ${this.speed}`);
 };
 
-Car.brake = function () {
+Car.prototype.brake = function () {
   this.speed = Number(this.speed) - 5;
   console.log(`New speed: ${this.speed}`);
 };
